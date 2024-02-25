@@ -9,10 +9,10 @@ services:
       - "27017:27017"
     volumes:
       - mongodb-data:/data/db
-
   api:
     build: .
     container_name: api
+    #image: taleemhelp/api:0.2
     restart: unless-stopped
     environment:
       MONGO_URI: mongodb://mongoservice:27017/taleem_db

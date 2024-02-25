@@ -5,7 +5,9 @@ const mongoose = require('mongoose');
 const db = require("./db.js");
 // const {DB_URL} = require("./lib/config.js");
 /////////////////////////////////////////////----->>>>
-const auth = require('./auth/auth.js');
+const auth  = require('./auth/auth.js');
+const admin = require('./admin/admin.js');
+const init = require('./admin/init.js');
 ////////////////////////////////////////////////
 const cookieParser = require('cookie-parser');
 const PORT = 5000;
@@ -20,6 +22,9 @@ app.use(express.urlencoded({ extended: true }));
 
 //.. Route middlewares--/////////////////////////////////////
 app.use("/auth",auth);
+app.use("/admin",admin);
+app.use("/init",init);
+
 ///////////////////////////Routes////////////////////////
 app.get('/', async (req, res) =>{
     res.status(200).json({success :true ,  message : "Welcome to Node-Mongo Docker API!!!"});
@@ -30,8 +35,7 @@ db.once('open',()=> {
     app.listen(PORT, ()=>{console.log(`listening on port ${PORT}`)});
 });
 ///////////////////////////////////////////////////////////////////////
-    // app.listen(PORT, ()=>{console.log(`listening on port ${PORT}`)});
-
+  
 
 
 

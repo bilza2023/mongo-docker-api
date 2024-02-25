@@ -7,7 +7,7 @@ process.on('uncaughtException', function (err) {
 });
 //.......................................................
 // mongoose.connect("mongodb://bilal:32611@localhost:27017/taleem_db");
-mongoose.connect( process.env.MONGO_URI , { useNewUrlParser: true});
+mongoose.connect( process.env.MONGO_URI);
 // mongoose.connect( proces
 //mongodb://127.0.0.1:27017
 // mongoose.connect( "mongodb+srv://bilza2024:bils32611@taleem-db.oyecc5h.mongodb.net/" );
